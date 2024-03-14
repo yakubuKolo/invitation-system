@@ -1,0 +1,65 @@
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Festival Ticket</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  .ticket {
+    width: 400px;
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  .ticket h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .ticket-details {
+    margin-bottom: 20px;
+  }
+  .ticket-details p {
+    margin: 5px 0;
+  }
+  .ticket-holder {
+    margin-bottom: 20px;
+  }
+  .ticket-holder p {
+    margin: 5px 0;
+    font-weight: bold;
+  }
+  .qr-code {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .qr-code img {
+    max-width: 200px;
+  }
+</style>
+</head>
+<body>
+    {{#each rows}}
+
+<div class="ticket text-capitalize">
+  <h2>{{this.title}} Ticket</h2>
+  <div class="ticket-details">
+    <p><strong>Date:</strong>{{this.event_date}}</p>
+    <p><strong>Time:</strong> {{this.time}}</p>
+    <p><strong>Venue:</strong> {{this.venue}}</p>
+  </div>
+  <div class="ticket-holder">
+    <p>Dear {{this.FirstName}},</p>
+  </div>
+  <p>We are excited to have you join us for {{this.title}}! Please present this ticket for entry at the grounds.</p>
+  <div class="qr-code">
+    <img src="{{this.qr}}" alt="QR Code">
+  </div>
+</div>
+        {{/each}}
+
+</body>

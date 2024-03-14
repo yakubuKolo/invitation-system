@@ -1,0 +1,99 @@
+
+<head>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #333;
+        }
+
+        .flower-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .details {
+            margin-bottom: 20px;
+        }
+
+        .details p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .qr-code {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .qr-code img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .message {
+            margin-top: 20px;
+        }
+
+        .message p {
+            color: #666;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+        {{#each rows}}
+
+    <div class="container text-capitalize">
+        <div class="header">
+            <h1>{{this.title}}</h1>
+        </div>
+        <div class="details">
+            <p>Date: {{this.event_date}}</p>
+            <p>Time: {{this.time}}</p>
+            <p>Couple: {{this.event_host}}</p>
+        </div>
+        <div class="qr-code">
+            <!-- Placeholder for QR code image -->
+            <img src="{{this.qr}}" alt="QR Code">
+        </div>
+        <div class="message">
+            <p>Dear {{this.FirstName}},</p>
+            <p>You are cordially invited to celebrate the wedding of {{this.event_host}}. Join us for an evening filled with love, laughter, and memories.</p>
+            <p>Location:  {{this.venue}}</p>
+            <p>We look forward to seeing you!</p>
+        </div>
+    </div>
+
+    
+        {{/each}}
+
+  {{#if alert}}
+<div class="alert alert-dark alert-dismissible fade show fixed-bottom text-center text-uppercase" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+</body>
+

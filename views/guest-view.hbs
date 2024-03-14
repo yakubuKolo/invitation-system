@@ -1,0 +1,47 @@
+    {{#each rows}}
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 400px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      text-align: center;
+    }
+    .logo {
+      max-width: 100px;
+    }
+    .qr-code {
+      margin-top: 20px;
+          max-width: 200px;
+
+    }
+  
+  </style>
+<div class="container" style="width: fit-content;">
+      <img src="/assets/img/favicon.png" alt="Company Logo" class="logo">
+
+
+  <div class="container ">
+    <p class="text-capitalize">Hi {{this.FirstName}}, you have been invited to</p>
+    <h3 class="text-uppercase">{{this.title}}</h3>
+    <p>Date: {{this.event_date}}</p>
+    <p>Time: {{this.time}}</p>
+    <p>Place: {{this.venue}}</p>
+    <p>Host(s): {{this.event_host}}</p>
+    <img src="{{this.qr}}" alt="QR Code" class="qr-code">
+  </div>
+     {{/each}}
+  {{#if alert}}
+<div class="alert alert-dark alert-dismissible fade show fixed-bottom text-center text-uppercase" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+</div>
+ 

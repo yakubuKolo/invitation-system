@@ -1,0 +1,46 @@
+<div class="mb-4">
+  <label for="formGroupExampleInput" class="form-label text-capitalize">What kind of event are you hosting?</label>
+  <input type="text" class="form-control" id="formGroupExampleInput text-capitalize" placeholder="Car meet, grand opening" name="event_type" required>
+</div>
+<div class="mb-4">
+  <label for="formGroupExampleInput2" class="form-label text-capitalize">who is the event host?</label>
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Car lover, company CEO" name="event_host" required>
+</div>
+<div class="mb-4">
+  <label for="formGroupExampleInput2" class="form-label text-capitalize">name your event</label>
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="BMW car meet, company grand opening" name="tittle" required>
+</div>
+<div class="mb-4">
+  <label for="formGroupExampleInput2" class="form-label text-capitalize">where are you hosting at?</label>
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="VENUE" name="VENUE" required>
+</div>
+<div class="mb-4">
+  <label for="formGroupExampleInput2" class="form-label text-capitalize">When is your event</label>
+  <input type="date" class="form-control" id="formGroupExampleInput2" name="event_date" required>
+  <input type="time" class="form-control" id="formGroupExampleInput2" name="time" required>
+</div>
+
+  <p id="price" style="display: none;">{{this.price}}</p>
+
+
+ <button type="submit" class="btn btn-primary text-uppercase "> <p>pay <b id="new-price"></b> to register event</p> </button>
+
+
+
+<script>
+  // Sample price in USD
+const prinumber = document.getElementById("price").textContent;
+const newPp = document.getElementById("new-price");
+
+var price = parseInt(prinumber, 10);
+// Format price for the user's locale (e.g., en-US for United States)
+const formattedPrice = new Intl.NumberFormat('en-NG', {
+  style: 'currency',
+  currency: 'NGN'
+}).format(price);
+
+console.log(formattedPrice); // Output: $1,000.00
+
+newPp.innerText = formattedPrice
+
+</script>

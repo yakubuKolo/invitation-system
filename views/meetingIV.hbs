@@ -1,0 +1,62 @@
+<head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  .invitation-card {
+    width: 400px;
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  .invitation-card h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .invitation-details {
+    margin-bottom: 20px;
+  }
+  .invitation-details p {
+    margin: 5px 0;
+  }
+  .qr-code {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .qr-code img {
+    max-width: 200px;
+  }
+</style>
+</head>
+<body>
+    {{#each rows}}
+
+<div class="invitation-card text-capitalize">
+  <h2>{{this.title}}</h2>
+  <div class="invitation-details">
+    <p><strong>Date:</strong> {{this.event_date}}</p>
+    <p><strong>Time:</strong> {{this.time}}</p>
+    <p><strong>Venue:</strong> {{this.venue}}</p>
+    <p><strong>Company Name:</strong> {{this.event_host}}</p>
+  </div>
+  <p>Dear {{this.FirstName}},</p>
+  <p>We cordially invite you to attend our upcoming business meeting at {{this.event_host}}. Your participation is crucial to the success of this meeting.</p>
+  <div class="qr-code">
+    <img src="{{this.qr}}" alt="QR Code">
+  </div>
+</div>
+        {{/each}}
+
+          {{#if alert}}
+<div class="alert alert-dark alert-dismissible fade show fixed-bottom text-center text-uppercase" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+</body>
+

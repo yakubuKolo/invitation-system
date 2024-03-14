@@ -1,0 +1,61 @@
+ <div class="container text-center p-2" style="width: max-content;">
+
+
+<p>
+    <img src="/assets/img/favicon.png" alt="Company Logo" class="logo">
+
+</p>
+<p>
+<b>MY EVENTS</b>
+</p>
+
+
+<table class="table desk " style="display: block;">
+  <thead>
+    <tr>
+      <th scope="col">TITLE</th>
+      <th scope="col">TYPE</th>
+      <th scope="col">HOST</th>
+      <th scope="col">DATE</th>
+      <th scope="col">GUESTS</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      {{#each rows}}
+      
+    <tr>
+      <td class="text-uppercase text-bold" scope="row">{{this.title}}</td>
+      <td class="text-uppercase">{{event_type}}</td>
+      <td class="text-uppercase">{{event_host}}</td>
+      <td class="text-uppercase">{{event_date}}</td>
+       <td class="text-uppercase"><a href="/event/{{this.event_id}}"><i class="bi bi-people"></i >VIEW GUESTS</a></td>
+    </tr>
+        {{/each}}
+  </tbody>
+</table>
+
+
+      {{#each rows}}
+
+<div class="fixed-bottom">
+
+
+<a href="/evo/{{this.user_id}}" class=" btn btn-primary m-2">Add New Event</a>
+
+</div>
+
+
+        {{/each}}
+
+  {{#if alert}}
+<div class="alert alert-dark alert-dismissible fade show fixed-bottom text-center text-uppercase" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+
+ </div>
+
+

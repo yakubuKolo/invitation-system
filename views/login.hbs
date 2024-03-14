@@ -1,0 +1,26 @@
+{{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+<div class="container" style="width: fit-content;">
+
+  <div class="container text-center">
+    <img src="/assets/img/favicon.png" alt="Company Logo" class="logo">
+
+
+
+    <button onclick="signInWithGoogle">Sign In With Google</button>
+
+    <form class="row g-3 needs-validation" method="post" action="/log">
+      {{> logandreg}}
+      <button type="submit" class="btn btn-primary">Login</button>
+      <p>No account? No problem, just <a href="/register/user">create one</a></p>
+
+    </form>
+
+  </div>
+</div>
+

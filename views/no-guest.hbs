@@ -1,0 +1,16 @@
+<div class="container" style="width: fit-content;">
+
+
+<div class="container text-center">
+    <p><h1><b class="text-uppercase">
+        you have not added guests to your event
+    </b></h1></p>
+    <p class="m-5">
+                {{#each rows}}
+    <a href="/adduser/{{this.event_id}}" class="btn btn-primary aligng-self-center">Add Your First Guest</a>
+        {{/each}}
+    </p>
+</div>
+
+</div>
+

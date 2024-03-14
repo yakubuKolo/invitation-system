@@ -1,0 +1,143 @@
+{{!-- <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">View User</li>
+  </ol>
+</nav> --}}
+
+
+
+    {{#each rows}}
+                    <p class="btn btn-primary m-3" onclick="window.history.back()">    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3.222 18.917c5.666-5.905-.629-10.828-5.011-7.706l1.789 1.789h-6v-6l1.832 1.832c7.846-6.07 16.212 4.479 7.39 10.085z"/>
+</p>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script>
+
+<div class="container p-3" style="width: fit-content;">
+
+<div class="viewuser p-5">
+
+    {{!-- <div class="row mb-5">
+        <div class="col text-center">
+            <h1>{{this.FirstName}}</h1>
+        </div>
+    </div>
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">guest status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{this.FirstName}}</th>
+      <td>{{this.phone}}</td>
+      <td>{{this.status}}</td>
+    
+    </tr>
+
+  </tbody>
+</table>
+    <div class="row">
+        <div class="col-12">
+            <b>Qr code</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+<img src="{{this.qr}}" alt=""></div>
+    </div>
+
+        <div class="row">
+        <div class="col-6">
+            <b>VENUE;</b>
+        </div>
+        <div class="col-6">
+            <p>{{this.venue}}</p>
+        </div>
+    </div> --}}
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 400px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      text-align: center;
+    }
+    .logo {
+      max-width: 100px;
+    }
+    .qr-code {
+      margin-top: 20px;
+          max-width: 150px;
+
+    }
+
+  </style>
+
+
+
+  <div class="container">
+    <img src="/assets/img/favicon.png" alt="Company Logo" class="logo">
+    <h3 class="text-uppercase">{{this.title}}</h3>
+    <p style="display: none;" id="id">{{this.id}}</p>
+    <p style="display: none;" id="tyoe">{{this.event_type}}</p>
+    <p>Date: {{this.event_date}}</p>
+    <p>Time: {{this.time}}</p>
+    <p>Place: {{this.venue}}</p>
+    <p>Guest: {{this.FirstName}}</p>
+    <p>Phone: {{this.phone}}</p>
+    <p>Arrival Status: <b>{{this.status}}</b></p>
+    <p>Host(s): {{this.event_host}}</p>
+    <img src="{{this.qr}}" alt="QR Code" class="qr-code">
+  </div>
+
+
+
+
+     <a href="https://api.whatsapp.com/send?phone={{this.phone}}&text=%20http://localhost:8082/guestview/{{this.id}}">
+                <div class="col-12 d-grid">
+
+        <button class="btn btn-success m-2 text-capitalize">Send IV via Whatsapp</button>
+        </div>
+     </a>
+
+     <a href="http://localhost:8082/guestview/{{this.id}}">
+                <div class="col-12 d-grid">
+
+        <button class="btn btn-success m-2 text-capitalize">Tap and hold to send IV across other apps</button>
+        </div>
+     </a>
+
+                    <a href="/arrived/{{this.id}}" type="button" class="btn"><div class="col-12 d-grid">
+<button class="btn btn-danger bi bi-person-x"> SET GUEST STATUS TO ARRIVED </button>
+</a>
+
+    {{/each}}
+</div>
+
+  {{#if alert}}
+<div class="alert alert-dark alert-dismissible fade show fixed-bottom text-center text-uppercase" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+</div>
+
+
+
+
+
+   

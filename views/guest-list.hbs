@@ -1,0 +1,88 @@
+<div class="container text-center p-2" style="width: max-content;">
+
+{{#if removedUser}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  User has been removed.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+</div>
+{{/if}}
+
+
+
+
+      {{#each rows}}
+
+      <form class="d-flex fixed-top m-2 mb-5 needs-validation"  role="search" method="post" action="/event/{{this.event_id}}">
+
+              {{/each}}
+
+              <a class="btn btn-success" style="font-size: small;" id="back" href="">
+                Other Events
+                </a> 
+        <input class="form-control ms-2" type="search" placeholder="Search For Guests" name="search" aria-label="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+<br>
+
+<div class="text-center row mt-5">
+  <p class="col-12"><h1>Guest List</h1></p>
+  <p class="col-12" id="nti"></p>
+
+
+
+</div>
+
+
+<table class="table table-bordered desk" style="display: block;">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Status</th>
+      <th scope="col" class="text-end">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each rows}}
+    <tr>
+      <td class="text-capitalize">{{this.FirstName}}</td>
+      <td><h3><b>{{this.status}}</b></h3></td>
+          <p style="display: none;" id="ti" >{{this.title}}</p>
+      <p style="display: none;" id="ev">{{this.user_id}}</p>
+      <p style="display: none;" id="ad">{{this.event_id}}</p>
+      <td class="text-end " style="justify-content: space-between;">
+        <a href="/viewuser/{{this.id}}" type="button" class="btn  btn-small btn-primary "><i class="bi bi-eye"></i></a>
+        <a href="/edituser/{{this.id}}" type="button" class="btn btn-light btn-small "><i class="bi bi-pencil"></i></a>
+        <a href="/arrived/{{this.id}}" type="button" class="btn btn-small btn-danger "><i class="bi bi-person-x"></i ></a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<div class="container text-center">
+<a href="" id="adduser" class="btn btn-primary m-3 fixed-bottom">Add New Guest</a>
+
+</div>
+</div>
+<script>
+  const ev = document.querySelector("#ev").textContent;
+  const ad = document.querySelector("#ad").textContent;
+  const back = document.querySelector("#back");
+  const ti = document.querySelector("#ti").textContent;
+  const nti = document.querySelector("#nti");
+   const add = document.querySelector("#adduser").href = "/adduser/" + ad;
+
+
+back.href = "/user/events/" + ev;
+nti.textContent =ti
+
+</script>

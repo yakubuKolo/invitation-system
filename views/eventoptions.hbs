@@ -1,0 +1,105 @@
+<style>
+      .card{
+            max-width: 500px;
+      }
+</style>
+
+  {{#if alert}}
+<div class="alert alert-dark alert-dismissible fade show fixed-bottom text-center text-uppercase" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+      {{#each rows}}
+
+
+<div class="container text-center text-uppercase" style="width: fit-content;">
+
+          <img src="/assets/img/favicon.png" alt="Company Logo" class="logo">
+
+<br>
+
+
+      <p><h1><b>REGISTER AN EVENT TODAY</b></h1></p>
+      <p>we have not put limitations on the amount of guests you can invite for each event</p>
+
+
+<div class="container p-2 text-center text-uppercase" style="display: flex; flex-wrap:wrap; justify-content:center">
+
+
+
+
+<div class="card m-3">
+  <h5 class="card-header">Tickets</h5>
+  <div class="card-body">
+    <h5 class="card-title">generate tickets</h5>
+    <p class="card-text">you can generate tickets with unique qr codes for your fests. earn more by reducing ticket costs and eliminating fake tickets.</p>
+    <a href="/fest/{{this.user_id}}" class="btn btn-primary">Create</a>
+  </div>
+</div>
+
+
+<div class="card m-3">
+  <h5 class="card-header">get together</h5>
+  <div class="card-body">
+    <h5 class="card-title">organise get togethers.</h5>
+    <p class="card-text">invite your favourite people over for a good time with just them and no stolen or fake invitations. </p>
+    <a href="/gtg/{{this.user_id}}" class="btn btn-primary">Create</a>
+  </div>
+</div>
+
+<div class="card m-3">
+  <h5 class="card-header">meetings</h5>
+  <div class="card-body">
+    <h5 class="card-title">host meetings</h5>
+    <p class="card-text">secure your meeting, make sure only the invited are allowed in.</p>
+    <a href="/meet/{{this.user_id}}" class="btn btn-primary">Create</a>
+  </div>
+</div>
+
+
+<div class="card m-3">
+  <h5 class="card-header">WEddings</h5>
+  <div class="card-body">
+    <h5 class="card-title">create a wedding invitation</h5>
+    <p class="card-text">invite your loved ones for your special day and make sure there are no uninvited guests dude to fake invitation cards.</p>
+    <a href="/wedding/{{this.user_id}}" class="btn btn-primary">Create</a>
+  </div>
+</div>
+
+
+<div class="card m-3">
+  <h5 class="card-header">other</h5>
+  <div class="card-body">
+    <h5 class="card-title">thinking of something esle?</h5>
+    <p class="card-text">host a different kind of event with our generic card design.</p>
+    <a href="/other/{{this.user_id}}" class="btn btn-primary">Create</a>
+  </div>
+</div>
+
+
+
+
+
+     {{!-- <p><h1><b class="text-uppercase">
+      register your first event
+    </b></h1></p>
+<form class="row g-3 needs-validation ev-form-view" method="post" action="/user/events/add/{{this.user_id}}">
+      <h1><b class="text-center text-uppercase m-5"><p>add new event</p></b></h1>
+
+{{> event-form}}
+
+
+</form> --}}
+
+<a href="/user/events/{{this.user_id}}" class="btn btn-primary m-2 rounded-5 position-fixed bottom-0 start-0 ">My events</a>
+
+
+
+        {{/each}}
+
+</div>
+
+
+
+</div>

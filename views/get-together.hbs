@@ -1,0 +1,63 @@
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  .invitation-card {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .invitation-content {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .qr-code {
+    text-align: center;
+  }
+   .qr-code img {
+    max-width: 200px;
+  }
+</style>
+</head>
+<body>
+    {{#each rows}}
+
+<div class="invitation-card">
+  <div class="invitation-content text-capitalize">
+    <h2>{{this.title}}</h2>
+    <p><strong>Date:</strong> {{this.event_date}}</p>
+    <p><strong>Organized by:</strong> {{this.event_host}}</p>
+    <p><strong>Time:</strong> {{this.time}}</p>
+    <p><strong>Venue:</strong> {{this.venue}}</p>
+    <p>Welcome <span id="inviteeName">{{this.FirstName}}</span>,</p>
+    <p>We cordially invite you to join us for a fun get together!</p>
+  </div>
+  <div class="qr-code">
+    <!-- Insert QR code image here -->
+    <img src="{{this.qr}}" alt="QR Code">
+  </div>
+</div>
+        {{/each}}
+
+  {{#if alert}}
+<div class="alert alert-dark alert-dismissible fade show fixed-bottom text-center text-uppercase" role="alert">
+  {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+</body>
+

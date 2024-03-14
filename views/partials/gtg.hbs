@@ -1,0 +1,53 @@
+<div class="mb-4">
+  <input type="hidden" class="form-control" id="formGroupExampleInput text-capitalize" name="event_type" value="get together" required>
+</div>
+
+<div class="mb-4">
+  <label for="formGroupExampleInput" class="form-label text-capitalize">who's hosting</label>
+  <input type="text" class="form-control" id="formGroupExampleInput text-capitalize" name="event_host" required>
+</div>
+
+<div class="mb-4">
+  <label for="formGroupExampleInput" class="form-label text-capitalize">set a title for the get together</label>
+  <input type="text" class="form-control" id="formGroupExampleInput text-capitalize" name="tittle" required>
+</div>
+
+<div class="mb-4">
+  <label for="formGroupExampleInput" class="form-label text-capitalize">set date</label>
+  <input type="date" class="form-control" id="formGroupExampleInput text-capitalize" name="event_date" required>
+</div>
+
+<div class="mb-4">
+  <label for="formGroupExampleInput" class="form-label text-capitalize">set time</label>
+  <input type="time" class="form-control" id="formGroupExampleInput text-capitalize" name="time" required>
+</div>
+
+<div class="mb-4">
+  <label for="formGroupExampleInput" class="form-label text-capitalize">where is the wedding taking palce</label>
+  <input type="text" class="form-control" id="formGroupExampleInput text-capitalize" name="VENUE" required>
+</div>
+
+  <p id="price" style="display: none;">{{this.price}}</p>
+
+
+ <button type="submit" class="btn btn-primary text-uppercase "> <p>pay <b id="new-price"></b> to register event</p> </button>
+
+
+
+<script>
+  // Sample price in USD
+const prinumber = document.getElementById("price").textContent;
+const newPp = document.getElementById("new-price");
+
+var price = parseInt(prinumber, 10);
+// Format price for the user's locale (e.g., en-US for United States)
+const formattedPrice = new Intl.NumberFormat('en-NG', {
+  style: 'currency',
+  currency: 'NGN'
+}).format(price);
+
+console.log(formattedPrice); // Output: $1,000.00
+
+newPp.innerText = formattedPrice
+
+</script>
